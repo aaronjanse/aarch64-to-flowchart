@@ -5,7 +5,7 @@ import re
 
 print("digraph g {")
 
-branchPattern = re.compile(r"^b(?:\...) 0x([0-9a-f]+)")
+branchPattern = re.compile(r"^b(?:\...)? 0x([0-9a-f]+)")
 
 lines = [line.strip() for line in sys.stdin]
 
@@ -39,11 +39,12 @@ if len(currentBlock) > 0:
 for i, block in enumerate(blocks):
   label = '\\n'.join(block)
   print('a{} [label="{}", shape=box]'.format(i, label))
-  if i > 0:
-    print("a{} -> a{}".format(i-1, i))
 
   match = branchPattern.match(block[-1])
   if match:
+    if i < len(blocks) - 2 and match.group(0).startswith('b.'):
+      print("a{} -> a{}".format(i, i+1))
+
     destPos = match.group(0).split(' ')[1]
     destPos = int(destPos, 16)//4
 
@@ -56,6 +57,9 @@ for i, block in enumerate(blocks):
       else:
         print("a{} -> a{}".format(i, destBlockIdx+1))
         break
+  elif i < len(blocks) - 2:
+    print("a{} -> a{}".format(i, i+1))
+
 
 
 print("}")
