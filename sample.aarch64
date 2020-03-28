@@ -1,162 +1,9 @@
-mov x8, #0xfe200000
-add x9, x8, #0x1, lsl #12
-stur wzr, [x9, #48]
-stur wzr, [x8, #148]
-mov x0, #0x96
-sub x0, x0, #0x1
-ccmp x0, xzr, #0x0, nv
-b.gt 0x14
-mov x0, #0xc000
-stur w0, [x8, #152]
-stur wzr, [x8, #156]
-mov x0, #0x96
-sub x0, x0, #0x1
-ccmp x0, xzr, #0x0, nv
-b.gt 0x30
-stur wzr, [x8, #152]
-stur wzr, [x8, #156]
-mov x0, #0x7ff
-stur w0, [x9, #68]
-mov x0, #0x1a
-stur w0, [x9, #36]
-mov x0, #0x2
-stur w0, [x9, #40]
-mov x0, #0x70
-stur w0, [x9, #44]
-mov x0, #0x3f2
-stur w0, [x9, #56]
-mov x0, #0x301
-stur w0, [x9, #48]
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x78
-mov x11, #0x300000
-add x11, x11, #0x10, lsl #12
-add x13, x11, #0x0
-mov x0, #0x10
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.gt 0x98
-ldrb w2, [x9]
-stur w2, [x13]
-add x13, x13, #0x1
-ccmp x2, xzr, #0x0, nv
-b.ne 0x94
-add x12, x11, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-mov x1, #0x20
-ccmp x1, x2, #0x0, nv
-b.eq 0xc0
-mov x1, #0x9
-ccmp x1, x2, #0x0, nv
-b.eq 0xc0
-mov x1, #0xa
-ccmp x1, x2, #0x0, nv
-b.eq 0xc0
-sub x12, x12, #0x1
-ldrb w2, [x12]
-mov x1, #0x3b
-ccmp x1, x2, #0x0, nv
-b.ne 0x118
-ldrb w2, [x12]
-add x12, x12, #0x1
-mov x1, #0xa
-ccmp x1, x2, #0x0, nv
-b.ne 0x100
-b 0xc0
-ldrb w2, [x12]
-ccmp x2, xzr, #0x0, nv
-b.eq 0x150
-ldrb w2, [x12]
-add x12, x12, #0x1
-mov x1, #0xa
-ccmp x1, x2, #0x0, nv
-b.ne 0x144
-strb w2, [x13]
-add x13, x13, #0x1
-b 0xc0
-strb w2, [x13]
-add x13, x13, #0x1
-b 0x124
-add x12, x12, #0x1
-add x13, x11, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-strb w2, [x13]
-add x13, x13, #0x1
-ccmp x2, xzr, #0x0, nv
-b.ne 0x158
-add x12, x11, #0x0
-mov x15, #0x0
-mov x8, #0x300000
-add x8, x8, #0x100
-add x4, x8, #0x0
-ldrb w2, [x12]
-mov x1, #0x4c
-ccmp x1, x2, #0x0, nv
-b.ne 0x208
-add x15, x14, #0x0
-mov x3, #0xff
-and x2, x14, x3, lsl #24
-mov x2, x2, lsr #24
-strb w2, [x4]
-add x4, x4, #0x1
-and x2, x14, x3, lsl #16
-mov x2, x2, lsr #16
-strb w2, [x4]
-add x4, x4, #0x1
-and x2, x14, x3, lsl #8
-mov x2, x2, lsr #8
-strb w2, [x4]
-add x4, x4, #0x1
-and x2, x14, x3
-strb w2, [x4]
-add x4, x4, #0x1
-add x12, x12, #0x2
-ldrb w2, [x12]
-add x12, x12, #0x1
-mov x1, #0xa
-ccmp x1, x2, #0x0, nv
-b.ne 0x1fc
-strb wzr, [x4]
-add x4, x4, #0x1
-b 0x184
-strb w2, [x4]
-add x4, x4, #0x1
-b 0x1dc
-ldrb w2, [x12]
-ccmp x2, xzr, #0x0, nv
-b.eq 0x238
-add x15, x15, #0x1
-ldrb w2, [x12]
-add x12, x12, #0x1
-strb w2, [x13]
-add x13, x13, #0x1
-mov x1, #0xa
-ccmp x1, x2, #0x0, nv
-b.ne 0x218
-b 0x184
-add x12, x12, #0x1
-strb w2, [x13]
-add x13, x11, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-strb w2, [x13]
-add x13, x13, #0x1
-ccmp x2, xzr, #0x0, nv
-b.ne 0x244
-add x12, x11, #0x0
-mov x15, #0x0
 add x15, x15, #0x1
 mov x3, #0x20
 ldrb w2, [x12]
 mov x1, #0x4a
 ccmp x1, x2, #0x0, nv
-b.ne 0x2cc
+b.ne 0x68
 add x12, x12, #0x1
 mov x2, #0x30
 strb w2, [x13]
@@ -179,7 +26,7 @@ add x13, x13, #0x1
 mov x3, #0x1a
 mov x1, #0x47
 ccmp x1, x2, #0x0, nv
-b.ne 0x3fc
+b.ne 0x184
 mov x2, #0x30
 strb w2, [x13]
 add x13, x13, #0x1
@@ -199,205 +46,99 @@ mov x2, #0x31
 strb w2, [x13]
 add x13, x13, #0x1
 add x12, x12, #0x5
-add x12, x15, #0x0
+add x16, x12, #0x0
 add x7, x8, #0x0
 mov x3, #0x0
-ldrb w7, [x1]
+ldrb w1, [x7]
 add x7, x7, #0x1
 orr x3, x1, x3, lsl #8
-ldrb w7, [x1]
+ldrb w1, [x7]
 add x7, x7, #0x1
 orr x3, x1, x3, lsl #8
-ldrb w7, [x1]
+ldrb w1, [x7]
 add x7, x7, #0x1
 orr x3, x1, x3, lsl #8
-ldrb w7, [x1]
+ldrb w1, [x7]
 add x7, x7, #0x1
 orr x3, x1, x3, lsl #8
-add x12, x15, #0x0
+add x12, x16, #0x0
 ldrb w2, [x12]
-ldrb w7, [x1]
+ldrb w1, [x7]
 ccmp x1, xzr, #0x0, nv
-b.ne 0x380
+b.ne 0x11c
 mov x1, #0xa
 ccmp x1, x2, #0x0, nv
-b.eq 0x39c
+b.eq 0x144
 ccmp x1, x2, #0x0, nv
-b.eq 0x39c
-ldrb w7, [x1]
+b.eq 0x138
+ldrb w1, [x7]
 add x7, x7, #0x1
 ccmp x1, xzr, #0x0, nv
-b.ne 0x3a0
-b 0x360
+b.ne 0x124
+b 0xc8
 add x7, x7, #0x1
 add x12, x12, #0x1
-b 0x364
+b 0x100
 sub x4, x15, #0x1
-sub x4, x3, x15
+sub x4, x3, x4
 mov x3, #0x1a
-add x2, x2, #0x1
+add x0, x3, #0x0
+add x13, x13, x3
+sub x13, x13, #0x1
+sub x3, x3, #0x1
+mov x2, #0x1
 and x2, x4, x2, lsr #0
 mov x4, x4, lsr #1
-add x2, x2, #0x1e
+add x2, x2, #0x30
 strb w2, [x13]
-add x13, x13, #0x1
-sub x3, x3, #0x1
 ccmp x3, xzr, #0x0, nv
-b.ne 0x3b4
-b 0x464
+b.ne 0x158
+add x13, x13, x0
+b 0x20c
 ldrb w2, [x12]
 add x12, x12, #0x1
 mov x1, #0x20
 ccmp x1, x2, #0x0, nv
-b.eq 0x3dc
+b.eq 0x184
 mov x1, #0x9
 ccmp x1, x2, #0x0, nv
-b.eq 0x3dc
+b.eq 0x184
 mov x1, #0x30
 ccmp x1, x2, #0x0, nv
-b.eq 0x418
+b.eq 0x1c0
 mov x1, #0x31
 ccmp x1, x2, #0x0, nv
-b.eq 0x418
-b 0x430
+b.eq 0x1c0
+b 0x1d8
 ccmp x3, xzr, #0x0, nv
-b.eq 0x430
+b.eq 0x1d8
 sub x3, x3, #0x1
 stur w2, [x13]
 add x13, x13, #0x1
-b 0x3dc
+b 0x184
 sub x12, x12, #0x1
 ccmp x3, xzr, #0x0, nv
-b.eq 0x464
+b.eq 0x20c
 add x15, x2, #0x0
 mov x2, #0x21
 mov x0, #0x20
 ldur x1, [x9, #24]
 and x1, x1, x0
 ccmp x1, xzr, #0x0, nv
-b.ne 0x448
+b.ne 0x1f0
 stur w2, [x9]
 wfe
-b 0x45c
+b 0x204
 ldrb w2, [x12]
 add x12, x12, #0x1
 mov x1, #0xa
 ccmp x1, x2, #0x0, nv
-b.ne 0x480
+b.ne 0x228
 ldrb w2, [x12]
 add x12, x12, #0x1
 ccmp x2, xzr, #0x0, nv
-b.eq 0x490
+b.eq 0x238
 sub x12, x12, #0x1
-b 0x264
+b 0x0
 sub x14, x13, x12
 mov x14, x14, lsr #3
-mov x3, #0xff
-and x2, x14, x3, lsl #24
-mov x2, x2, lsr #24
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x4a8
-stur w2, [x9]
-and x2, x14, x3, lsl #16
-mov x2, x2, lsr #16
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x4c8
-stur w2, [x9]
-and x2, x14, x3, lsl #8
-mov x2, x2, lsr #8
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x4e8
-stur w2, [x9]
-and x2, x14, x3
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x504
-stur w2, [x9]
-add x14, x12, #0x0
-add x12, x14, #0x18
-mov x1, #0x8
-mov x3, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-sub x2, x2, #0x30
-orr x3, x2, x3, lsl #1
-sub x1, x1, #0x1
-ccmp x1, xzr, #0x0, nv
-b.ne 0x528
-add x2, x3, #0x0
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x54c
-stur w2, [x9]
-ldrb w2, [x12]
-add x12, x14, #0x10
-mov x1, #0x8
-mov x3, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-sub x2, x2, #0x30
-orr x3, x2, x3, lsl #1
-sub x1, x1, #0x1
-ccmp x1, xzr, #0x0, nv
-b.ne 0x570
-add x2, x3, #0x0
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x594
-stur w2, [x9]
-ldrb w2, [x12]
-add x12, x14, #0x8
-mov x1, #0x8
-mov x3, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-sub x2, x2, #0x30
-orr x3, x2, x3, lsl #1
-sub x1, x1, #0x1
-ccmp x1, xzr, #0x0, nv
-b.ne 0x5b8
-add x2, x3, #0x0
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x5dc
-stur w2, [x9]
-ldrb w2, [x12]
-add x12, x14, #0x0
-mov x1, #0x8
-mov x3, #0x0
-ldrb w2, [x12]
-add x12, x12, #0x1
-sub x2, x2, #0x30
-orr x3, x2, x3, lsl #1
-sub x1, x1, #0x1
-ccmp x1, xzr, #0x0, nv
-b.ne 0x600
-add x2, x3, #0x0
-mov x0, #0x20
-ldur x1, [x9, #24]
-and x1, x1, x0
-ccmp x1, xzr, #0x0, nv
-b.ne 0x624
-stur w2, [x9]
-ldrb w2, [x12]
-add x12, x14, #0x20
-ldrb w2, [x12]
-ccmp x2, xzr, #0x0, nv
-b.ne 0x518
